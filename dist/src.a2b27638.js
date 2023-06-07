@@ -179,7 +179,7 @@ require("./styles.css");
 function printHelloWorld() {
   console.log("Hello World");
 }
-document.getElementById("app").innerHTML = "\n<h1>Hello Vanilla!</h1>\n<button id=\"my-button\" onclick=\"printHelloWorld()></button>\n";
+document.getElementById("app").innerHTML = "\n<<<<<<< HEAD\n<h1>Hello Vanilla!</h1>\n<button id=\"my-button\" onclick=\"printHelloWorld()></button>\n=======\n<h1>Hello world!</h1>\n>>>>>>> dd68bc27d3e59828dae964f2c914f15c496626cf\n";
 },{"./styles.css":"src/styles.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
