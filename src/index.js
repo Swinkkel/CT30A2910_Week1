@@ -6,5 +6,6 @@ function printHelloWorld() {
 
 document.getElementById("app").innerHTML = `
 <h1>Hello world!</h1>
-<button id="my-button" onclick="printHelloWorld()>Button</button>
+<button id="my-button" onclick="printHelloWorld">Click me</button>
+<h1>test</h1>
 `;
