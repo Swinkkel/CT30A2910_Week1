@@ -176,10 +176,36 @@ module.hot.accept(reloadCSS);
 "use strict";
 
 require("./styles.css");
-function printHelloWorld() {
-  console.log("Hello World");
+if (document.readyState !== "loading") {
+  console.log("Document is ready!");
+} else {
+  document.addEventListener("DOMContentLoaded", function () {
+    console.log("Document is ready after waiting!");
+    var buttonId = document.getElementById("my-button");
+    if (buttonId == null) {
+      console.log("Failed.");
+    } else {
+      console.log("Done.");
+    }
+    buttonId.onclick = test;
+    var addButtonId = document.getElementById("add-data");
+    addButtonId.onclick = addData;
+    console.log("Button click handler added.");
+  });
 }
-document.getElementById("app").innerHTML = "\n<<<<<<< HEAD\n<h1>Hello Vanilla!</h1>\n<button id=\"my-button\" onclick=\"printHelloWorld()></button>\n=======\n<h1>Hello world!</h1>\n>>>>>>> dd68bc27d3e59828dae964f2c914f15c496626cf\n";
+function addData() {
+  var listId = document.getElementById("list");
+  var textAreaId = document.getElementById("my-text");
+  var li = document.createElement("li");
+  li.appendChild(document.createTextNode(textAreaId.value));
+  listId.appendChild(li);
+  console.log("addData");
+}
+function test() {
+  var buttonId = document.getElementById("my-header");
+  buttonId.innerText = "My notebook";
+  console.log("Hello world!");
+}
 },{"./styles.css":"src/styles.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -205,7 +231,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36493" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52183" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

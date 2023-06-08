@@ -1,12 +1,42 @@
-import "./styles.css";
+import "./styles.css"
 
-function printHelloWorld() {
-  console.log("Hello World");
-  document.getElementById("header_id").textContent("My notebook");
+if(document.readyState !== "loading") {
+    console.log("Document is ready!");
+} else {
+    document.addEventListener("DOMContentLoaded", function() {
+        console.log("Document is ready after waiting!");
+
+        const buttonId = document.getElementById("my-button");
+        if (buttonId == null) {
+            console.log("Failed.");    
+        }
+        else {
+            console.log("Done.");    
+        }
+        buttonId.onclick = test;
+        
+        const addButtonId = document.getElementById("add-data");
+        addButtonId.onclick = addData;
+
+        console.log("Button click handler added.");
+
+    })
 }
 
-document.getElementById("app").innerHTML = `
-<h1 id="header_id">Hello world!</h1>
-<button id="my-button" onclick="printHelloWorld">Click me</button>
-<h1>test</h1>
-`;
+function addData() {
+    let listId = document.getElementById("list");
+
+    let textAreaId = document.getElementById("my-text");
+    
+    let li = document.createElement("li");
+    li.appendChild(document.createTextNode(textAreaId.value));
+    listId.appendChild(li);
+    console.log("addData");
+
+}
+
+function test() {
+    const buttonId = document.getElementById("my-header");
+    buttonId.innerText = "My notebook";
+    console.log("Hello world!");
+}
